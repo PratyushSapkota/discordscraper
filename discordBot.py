@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 from discordScraper import scrapeMessages
 import asyncio
 from seleniumFunctions import login, initializeDriver
+from utils import clearDirectory
 
 load_dotenv()
 import os
@@ -19,21 +20,19 @@ scrapeServerChannel = "1029781241702129716/1030196642508447785"
 
 
 async def runScraper():
-    driver, wait = initializeDriver()
-
+    driver, wait = initializeDriver(60)
     try:
         while True:
             messages = await scrapeMessages(
                 driver=driver,
                 wait=wait,
                 scrapeServerChannel=scrapeServerChannel,
-                filter=filter,
             )
             print(" **BOT** Found:", len(messages))
             if messages:
                 messages.reverse()
-                for message in messages:
-                    await send_message(message)
+                # for message in messages:
+                # await send_message(message)
             await asyncio.sleep(60)
             print("STARTING SCRAPE AGAIN")
 
@@ -50,6 +49,7 @@ async def runScraper():
 
 @client.event
 async def on_ready():
+    clearDirectory()
     print(f"Bot is ready and logged in as {client.user}")
     asyncio.create_task(runScraper())
 

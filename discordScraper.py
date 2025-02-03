@@ -1,19 +1,19 @@
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
+from selenium import webdriver
 import json
 import time
 from seleniumFunctions import (
     login,
-    getToPage,
-    lookup,
     scrapeChannelMessages,
 )
 from datetime import datetime
 import asyncio
+from utils import saveScreenshot
 
 lastMessage = ""
 
 
-async def scrapeMessages(driver, wait, scrapeServerChannel, filter):
+async def scrapeMessages(driver: webdriver.Chrome, wait, scrapeServerChannel):
     global lastMessage
     data = []
     try:
@@ -22,7 +22,7 @@ async def scrapeMessages(driver, wait, scrapeServerChannel, filter):
             await login(wait=wait, driver=driver)
         except Exception as e:
             pass
-
+        
         messages = await scrapeChannelMessages(driver=driver, wait=wait)
         messages.reverse()
         for message in messages:
@@ -34,7 +34,7 @@ async def scrapeMessages(driver, wait, scrapeServerChannel, filter):
             print("LATEST MESSAGE: ", data[0])
             lastMessage = data[0]
 
-        print("New Data: ", len(data))
-        return data
     except Exception as e:
         print("ERROR: ", e)
+
+    return data
