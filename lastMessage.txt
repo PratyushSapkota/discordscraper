@@ -1,0 +1,3 @@
+{
+    "lastMessage": "Suga: \nI would appreciate having commas in the sizing window: I mean getting displayed 1,000,000 instead of 1000000.  I did a fast market buy in the recent wick with 10x my intended size and I almost die of a heart attack. \n\nShuri2060 replied: \nI agree for the Confirmation window, otherwise itd get in the way of the input textbox imo.\n\nThere are also other visual indicators which help with this such as 'Order Value'. Perhaps above 'Order Value', they could also add a readable Size field with commas for clarity (edited)"
+}

@@ -28,7 +28,7 @@ def initializeDriver(waitTime):
     options.add_argument(
         "user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36"
     )
-    options.add_argument("--headless")
+    # options.add_argument("--headless")
     options.add_argument("--window-size=1920,1080")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--no-sandbox")
@@ -37,14 +37,14 @@ def initializeDriver(waitTime):
     return driver, wait
 
 
-
 async def login(wait, driver: webdriver.Chrome):
-    if driver.find_elements(By.XPATH, scrollerXPath):
-        print("Already Logged in")
+    driver.get("https://discord.com/login")
+    await asyncio.sleep(10)
+    currentUrl = driver.current_url
+    if "channels" in currentUrl:
+        print("already logged in")
         return
-    else:
-        print("Did not find scroller")
-   
+
     print("Waiting for email box to load up")
     wait.until(
         EC.presence_of_element_located(
@@ -77,6 +77,10 @@ async def scrapeChannelMessages(driver: webdriver.Chrome, wait: WebDriverWait):
         if scroller.is_displayed():
             scroller.send_keys(Keys.END)
 
+        wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, messageContainerXPath))
+        )
+
         saveScreenshot("Before Scraping", driver)
 
         soup = BeautifulSoup(driver.page_source, "html.parser")
@@ -89,4 +93,5 @@ async def scrapeChannelMessages(driver: webdriver.Chrome, wait: WebDriverWait):
     except Exception as e:
         print("Failed somewhere while scraping; \n", e)
         pass
+    print(f"Scrapped {len(data)} now scanning for new")
     return data
