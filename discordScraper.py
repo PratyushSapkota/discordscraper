@@ -15,13 +15,14 @@ async def scrapeMessages(driver: webdriver.Chrome, wait, scrapeServerChannel):
     lastMessage = get_last_message()
     data = []
     try:
-        try:
-            await login(wait=wait, driver=driver)
-        except Exception as e:
-            print("888Failed to login888")
-            print("\n", e)
-            pass
+        # try:
+        #     await login(wait=wait, driver=driver)
+        # except Exception as e:
+        #     print("888Failed to login888")
+        #     print("\n", e)
+        #     pass
         driver.get(f"https://discord.com/channels/{scrapeServerChannel}")
+        
 
         messages = await scrapeChannelMessages(driver=driver, wait=wait)
         messages.reverse()

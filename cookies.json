@@ -1,0 +1,50 @@
+[
+    {
+        "domain": ".discord.com",
+        "httpOnly": true,
+        "name": "_cfuvid",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "KC1F.iLIEpDuM.S2BILtDAbFLGT5atehKA0_u1Neh3Y-1738605802218-0.0.1.1-604800000"
+    },
+    {
+        "domain": ".discord.com",
+        "httpOnly": true,
+        "name": "__cfruid",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "cee7997243e34fcf7d4603beb43e7efe3757489a-1738605802"
+    },
+    {
+        "domain": ".discord.com",
+        "expiry": 1770141805,
+        "httpOnly": true,
+        "name": "cf_clearance",
+        "path": "/",
+        "sameSite": "None",
+        "secure": true,
+        "value": "3ZJQPjZo3sv4d5h2dpLEfvQgUNiIuPfL53O8GDSADAA-1738605805-1.2.1.1-z93wp53ugHXVTeyCD4xE3WT.Tg1Mgav1_R.Ty5_S8fdkJ9KujDYiiR1E6lLwXL5uftxucaX0pyRjtPwGccigk8lR39RpVTz13T9OMekUVd5Gm9vC4QcRFb2umJ_R9_baSBTk18ZoaJexySNEmjM4mXbQhPEPOm6gb9KuLpMFk6QMTtFYRFxR53wTi5QgOUQNHcoQC5HPTBpn6In6thzWdWFfgCUhP1pu0hss8.Bl9Ji3d8D1.7ubjWlHaz9sBJAZRuzRLxXTijXeK5mc4uHM020FihJADRFWvYzuDCWlnQ4"
+    },
+    {
+        "domain": "discord.com",
+        "expiry": 1773165802,
+        "httpOnly": true,
+        "name": "__sdcfduid",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": true,
+        "value": "27f48e01e25911efac959debe3ad170f459b63b8d9f4a274ad2e25b922fc0f1876a08334f145fd394bc8be1524e77d04"
+    },
+    {
+        "domain": "discord.com",
+        "expiry": 1773165802,
+        "httpOnly": true,
+        "name": "__dcfduid",
+        "path": "/",
+        "sameSite": "Lax",
+        "secure": true,
+        "value": "27f48e00e25911efac959debe3ad170f"
+    }
+]
